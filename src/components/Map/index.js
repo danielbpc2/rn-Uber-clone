@@ -3,9 +3,9 @@ import {View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import Search from '../Search';
+import Details from '../Details';
 import Directions from '../Directions';
 import Geocoder from 'react-native-geocoding';
-
 import markerImage from '../../assets/marker.png';
 
 import {
@@ -113,7 +113,11 @@ export default class Map extends Component {
             </>
           )}
         </MapView>
-        <Search onLocationSelected={this.handleLocationSelected} />
+        {destination ? (
+          <Details />
+        ) : (
+          <Search onLocationSelected={this.handleLocationSelected} />
+        )}
       </View>
     );
   }
