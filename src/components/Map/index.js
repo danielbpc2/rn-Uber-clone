@@ -8,6 +8,7 @@ import Directions from '../Directions';
 import Geocoder from 'react-native-geocoding';
 import markerImage from '../../assets/marker.png';
 import backimage from '../../assets/back.png';
+import {getPixelSize} from '../../utils';
 
 import {
   LocationBox,
@@ -95,7 +96,14 @@ export default class Map extends Component {
                 destination={destination}
                 onReady={result => {
                   this.setState({duration: Math.floor(result.duration)});
-                  this.mapView.fitToCoordinates(result.coordinates);
+                  this.mapView.fitToCoordinates(result.coordinates, {
+                    edgePadding: {
+                      right: getPixelSize(50),
+                      left: getPixelSize(50),
+                      top: getPixelSize(50),
+                      bottom: getPixelSize(350),
+                    },
+                  });
                 }}
               />
               <Marker
