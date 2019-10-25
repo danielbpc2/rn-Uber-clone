@@ -6,7 +6,7 @@ const Directions = ({destination, origin, onReady}) => (
     destination={destination}
     origin={origin}
     onReady={onReady}
-    apikey="AIzaSyClWoW26mY9P56LPjgFV6VS7ufv3eBxut0"
+    apikey={process.env.GOOGLEAPIKEY}
     strokeWidth={3}
     strokeColor="#222"
   />

@@ -19,7 +19,7 @@ import {
   Back,
 } from './styles';
 
-Geocoder.init('AIzaSyClWoW26mY9P56LPjgFV6VS7ufv3eBxut0');
+Geocoder.init(process.env.GOOGLE_API_KEY));
 
 export default class Map extends Component {
   state = {
